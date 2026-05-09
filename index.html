@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Tech Indoor - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>DASHBOARD</h2>
+            <nav class="menu-container">
+                <ul>
+                    <li><a href="#pengertian"><i class="fas fa-book-open"></i> Definition</a></li>
+                    <li><a href="#projects"><i class="fas fa-leaf"></i> Projects</a></li>
+                    <li><a href="#Switch-Control"><i class="fas fa-tasks"></i> Switch Control </a></li>
+                    <li><a href="#Monitoring-Data"><i class="fas fa-droplet"></i> Monitoring Data</a></li>
+                    <li><a href="#active-projects"><i class="fas fa-tasks"></i> Active Projects</a></li>
+                </ul>
+            </nav>
+            
+            <div class="status-fixed-info">
+                <div class="status-indicator online"></div> 
+                <span class="status-label" id="status">Connected</span>
+            </div> 
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <h2 style="font-size: 35px; color: #ffffff; margin: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">A G R O      T E C H      I N D O O R</h2> 
+                <img src="img/logo3.png" alt="Logo" class="header-logo">
+            </header>
+
+            <!-- SECTION PENGERTIAN -->
+            <section id="pengertian" style="margin-bottom: 40px;">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Definition</h2>
+                <div class="card" style="background: transparent; border: 1px dashed #333;">
+                    <p class="description-text">
+                        <b style="color: white;">Monitoring System:</b> This dashboard is used to monitor environmental parameters in real time.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION PROJECTS (SENSORS) -->
+            <section id="projects">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Projects</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <p>Water pH</p>
+                        <h3><span id="phAir">?</span></h3>
+                        <span>Status: Normal</span>
+                    </div>
+
+                    <div class="card">
+                        <p>Water Temperature</p>
+                        <h3><span id="suhuAir">?</span>°C</h3>
+                        <span>Status: Stabil</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header-flex">
+                            <div class="status-text-group">
+                                <p>Gas Quality</p>
+                                <h3 class="warning-text"><span id="gas">?</span>PPM</h3>
+                                <span class="status-gas">Clean Air</span>
+                            </div>
+                        </div>
+                        <span style="color: var(--apricot); display:block; margin-top: 10px;">Turn on the exhaust immediately</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="Switch-Control" style="margin-top: 40px;">
+                <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Switch Control</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <p>Fan</p>
+                        <label class="switch">
+                            <input type="checkbox" id="fanToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="card">
+                        <p>LED</p>
+                        <label class="switch">
+                            <input type="checkbox" id="ledToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION MONITORING (pH & SUHU) -->
+            <section id="Monitoring-Data" style="margin-top: 40px;">
+            <h2 style="font-size: 13px; color: #444; margin-bottom: 25px; letter-spacing: 2px; font-weight: 700; padding-left: 5px;">Monitoring Data</h2>
+    
+                <div class="chart-container-flex"> 
+        
+            <!-- Grafik pH -->
+            <div class="card chart-card">
+                <p style="color: #666; font-size: 12px; margin-bottom: 10px;">Monitoring Water pH</p>
+                <div class="chart-main">
+                    <div class="y-axis">
+                        <span>14</span><span>10</span><span>7</span><span>4</span><span>0</span>
+                    </div>
+                    <div class="graph-area">
+                        <svg id="suhuChart" viewBox="0 0 100 40" preserveAspectRatio="none">
+                            <path id="phPath" d="M0,30 Q20,10 40,25 T80,15 T100,20" fill="none" stroke="#2ECC71" stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grafik Suhu -->
+            <div class="card chart-card">
+                <p style="color: #666; font-size: 12px; margin-bottom: 10px;">Monitoring Water Temperature</p>
+                <div class="chart-main">
+                    <div class="y-axis">
+                        <span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                    </div>
+                    <div class="graph-area">
+                        <svg id="suhuChart" viewBox="0 0 100 40" preserveAspectRatio="none">
+                            <path id="suhuPath" d="M0,35 Q25,5 50,20 T100,10" fill="none" stroke="#3498DB" stroke-width="2" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+            </section>
+            
+            <!-- SECTION ACTIVE PROJECTS -->
+            <section id="active-projects">
+                <h2 style="font-size: 13px; color: #444; margin: 40px 0 20px; letter-spacing: 2px; font-weight: 700;">Active Projects</h2>
+                <div class="table-container">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Sensor Type</th>
+                                <th>Last Check</th>
+                                <th>Priority</th>
+                                <th>Uptime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>pH Meter Analog</td>
+                                <td>2 mins ago</td>
+                                <td><span class="badge">High</span></td>
+                                <td>99.9%</td>
+                            </tr>
+                            <tr>
+                                <td>Temperature</td>
+                                <td>5 mins ago</td>
+                                <td><span class="badge">Medium</span></td>
+                                <td>98.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
